@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587485fd3b8c4854e8ee9e84d5386a6a, type: 3}
+  m_Name: BattleSystem
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceSO
+  pages:
+  - {fileID: 21300000, guid: 943f376992ebc6a4194d2434270a04b2, type: 3}
+  - {fileID: 21300000, guid: 1bcc5c59db16d2d43b5637ceaed24a50, type: 3}
+  - {fileID: 21300000, guid: 1b2833b9be31dd4488441dda266b427e, type: 3}
+  - {fileID: 21300000, guid: 008e38ee22243dc4d96f8dcf965616d1, type: 3}
+  - {fileID: 21300000, guid: 561a7d441f4ba774494e5db4d64fd8d4, type: 3}
+  - {fileID: 21300000, guid: 496e6f74d9b05a343a023410a53e3a03, type: 3}
+  - {fileID: 21300000, guid: 37fe13f317c5a044ca6bc2d5310d6747, type: 3}
+  - {fileID: 21300000, guid: 9e983bfd381d73f498ee20b406b445da, type: 3}
+  - {fileID: 21300000, guid: a6f0fd45912c0d44d87e976e5a555fe9, type: 3}
+  loop: 0

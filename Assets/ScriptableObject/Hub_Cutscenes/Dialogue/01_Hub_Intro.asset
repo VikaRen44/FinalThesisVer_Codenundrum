@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 01_Hub_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 0
+  defaultAutoAdvanceSeconds: 0.8
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: ???
+    text: 'Hey! You''re finally awake! '
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: Sheesh I thought you were already a goner...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: So stranger... What brings you here today?
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*A look of confusion fills your face'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: Oh sorry i havent introduced myself yet.
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: My name's Mouse!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Regarding our whereabouts...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: We are currently in the DataSpace!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 5
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Feel free to explore around!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1

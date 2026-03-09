@@ -1,0 +1,35 @@
+﻿{
+    "sceneName": "05_Chapter1",
+    "saveLabel": "05_Chapter1 - 00:03:32",
+    "totalPlaytimeSeconds": 212,
+    "realWorldUnixSeconds": 1772505761,
+    "playerName": "Charlieff",
+    "selectedCharacterIndex": 1,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MCFem@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":1,\"currentIndex\":6,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\",\"default|Chapter1\"],\"contextCurrentIndex\":[3,6],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[],\"pendingRewards\":[]}",
+    "assessmentScorePayloadJson": "",
+    "player": {
+        "px": 2863.07373046875,
+        "py": 85.28172302246094,
+        "pz": -352.5152587890625,
+        "rx": 0.0,
+        "ry": 339.7740478515625,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 2869.8798828125,
+        "py": 85.54560089111328,
+        "pz": -350.9050598144531,
+        "rx": 0.0,
+        "ry": 274.8299255371094,
+        "rz": 0.0
+    },
+    "objects": [
+        {
+            "id": "Host",
+            "payload": "{\"entries\":[{\"type\":\"TransformStateSaveable, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\",\"state\":\"{\\\"px\\\":2869.8798828125,\\\"py\\\":85.54560089111328,\\\"pz\\\":-350.9050598144531,\\\"rx\\\":0.0,\\\"ry\\\":274.8299255371094,\\\"rz\\\":0.0}\"}]}"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+﻿{
+    "sceneName": "04_Gamehub",
+    "saveLabel": "04_Gamehub - 00:01:02",
+    "totalPlaytimeSeconds": 62,
+    "realWorldUnixSeconds": 1772066383,
+    "playerName": "Lee",
+    "selectedCharacterIndex": 0,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MC@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":0,\"currentIndex\":2,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\"],\"contextCurrentIndex\":[2],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[],\"pendingRewards\":[]}",
+    "player": {
+        "px": -1.049395203590393,
+        "py": -2.8685009479522707,
+        "pz": 20.956783294677736,
+        "rx": 0.0,
+        "ry": 0.00005937303649261594,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 0.0,
+        "py": 0.0,
+        "pz": 0.0,
+        "rx": 0.0,
+        "ry": 0.0,
+        "rz": 0.0
+    },
+    "objects": []
+}

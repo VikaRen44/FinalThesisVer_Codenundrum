@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 04_CH1_Memory1 1
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 1
+  defaultAutoAdvanceSeconds: 4
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: 
+    text: "\u26A0 MEMORY SHARD: FINAL CORE"
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Playback integrity: STABLE'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: Playback authorized.
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Lizzy\u2026 If you\u2019re hearing this, then\u2026 it worked.
+      At least\u2026 enough. "
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Lizzy\u2026 If you\u2019re hearing this, then\u2026 it worked.
+      At least\u2026 enough. "
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Your new body\u2014 It\u2019s not perfect...."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: But it\u2019s strong. And more importantly...It\u2019s yours."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: I want you to know something, sweetheart.'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: I know waking up like this will be scary. You might feel\u2026
+      wrong."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: That doesn\u2019t mean you\u2019re broken."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: ...
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: There''s a possibility that once you wake up...  I won''t be there
+      anymore... '
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: I caught it too, sweetheart... '
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: By the time you hear this, I may be long gone... '
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: But I need you to understand something, Lizzy...'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: I stayed as long as I could....'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: Long enough to teach the house how to protect you...'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Long enough to make sure you wouldn\u2019t wake up alone..."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: I wish we could\u2019ve played more together..."
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: Heard you laugh without machines in the room...'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: ...
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Father: No matter what form you wake up in. '
+    portrait: {fileID: 21300000, guid: cf1d677ea8c732e4eadbd1bc3927b234, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0

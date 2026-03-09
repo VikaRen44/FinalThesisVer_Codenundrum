@@ -1,0 +1,30 @@
+﻿{
+    "sceneName": "04_Gamehub",
+    "saveLabel": "04_Gamehub - 00:00:33",
+    "totalPlaytimeSeconds": 33,
+    "realWorldUnixSeconds": 1772414817,
+    "playerName": "Charlienn",
+    "selectedCharacterIndex": 1,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MCFem@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":0,\"currentIndex\":2,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\"],\"contextCurrentIndex\":[2],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[],\"pendingRewards\":[]}",
+    "assessmentScorePayloadJson": "",
+    "player": {
+        "px": 0.4389755129814148,
+        "py": -2.8685009479522707,
+        "pz": 21.25287437438965,
+        "rx": 0.0,
+        "ry": 0.014309356920421124,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 0.0,
+        "py": 0.0,
+        "pz": 0.0,
+        "rx": 0.0,
+        "ry": 0.0,
+        "rz": 0.0
+    },
+    "objects": []
+}

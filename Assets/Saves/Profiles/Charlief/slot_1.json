@@ -1,0 +1,29 @@
+﻿{
+    "sceneName": "04_Gamehub",
+    "saveLabel": "04_Gamehub - 00:00:35",
+    "totalPlaytimeSeconds": 36,
+    "realWorldUnixSeconds": 1772336566,
+    "playerName": "Charlief",
+    "selectedCharacterIndex": 1,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MCFem@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":0,\"currentIndex\":2,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\"],\"contextCurrentIndex\":[2],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[],\"pendingRewards\":[]}",
+    "player": {
+        "px": 0.0060129314661026,
+        "py": -2.8685009479522707,
+        "pz": 20.750598907470704,
+        "rx": 0.0,
+        "ry": 0.000012810868611268234,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 0.0,
+        "py": 0.0,
+        "pz": 0.0,
+        "rx": 0.0,
+        "ry": 0.0,
+        "rz": 0.0
+    },
+    "objects": []
+}

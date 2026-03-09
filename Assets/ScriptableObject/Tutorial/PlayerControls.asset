@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587485fd3b8c4854e8ee9e84d5386a6a, type: 3}
+  m_Name: PlayerControls
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceSO
+  pages:
+  - {fileID: 21300000, guid: 2055f87e66c915641aacb7d1a9d683b5, type: 3}
+  - {fileID: 21300000, guid: de376b2f82c625f409e4bb6c7107719a, type: 3}
+  loop: 0

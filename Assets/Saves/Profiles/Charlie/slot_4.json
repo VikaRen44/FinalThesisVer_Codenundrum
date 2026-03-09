@@ -1,0 +1,35 @@
+﻿{
+    "sceneName": "05_Chapter1",
+    "saveLabel": "05_Chapter1 - 00:07:20",
+    "totalPlaytimeSeconds": 440,
+    "realWorldUnixSeconds": 1773083774,
+    "playerName": "Charlie",
+    "selectedCharacterIndex": 1,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MCFem@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":1,\"currentIndex\":0,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\",\"default|Chapter1\"],\"contextCurrentIndex\":[2,0],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[\"CH1_COMPLETE\",\"CompleteAssessment1\"],\"pendingRewards\":[]}",
+    "assessmentScorePayloadJson": "{\"entries\":[{\"key\":\"CH1_ASSESS\",\"bestScore\":10,\"totalQuestions\":19}]}",
+    "player": {
+        "px": 2864.095703125,
+        "py": 85.28172302246094,
+        "pz": -353.4074401855469,
+        "rx": 0.0,
+        "ry": 267.5654296875,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 2866.530029296875,
+        "py": 93.00900268554688,
+        "pz": -328.5400085449219,
+        "rx": 0.0,
+        "ry": 0.0,
+        "rz": 0.0
+    },
+    "objects": [
+        {
+            "id": "Host",
+            "payload": "{\"entries\":[{\"type\":\"TransformStateSaveable, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\",\"state\":\"{\\\"px\\\":2866.530029296875,\\\"py\\\":93.00900268554688,\\\"pz\\\":-328.5400085449219,\\\"rx\\\":0.0,\\\"ry\\\":0.0,\\\"rz\\\":0.0}\"}]}"
+        }
+    ]
+}

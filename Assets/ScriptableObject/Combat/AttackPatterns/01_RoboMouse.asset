@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f363e930b19d348912f63503832338, type: 3}
+  m_Name: 01_RoboMouse
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Robomice
+  maxHP: 100
+  portrait: {fileID: 21300000, guid: 3106d1e810e0b6e4bb33cbd9ec1494d3, type: 3}
+  attacks:
+  - {fileID: 11400000, guid: 8e10a8cc4069e0b43b7492fc8748dadd, type: 2}
+  - {fileID: 11400000, guid: 6a2aa645d52a83c4f81000c982849ff1, type: 2}
+  - {fileID: 11400000, guid: 95a0c2eb7cfe0c84b9667e5756bead68, type: 2}
+  - {fileID: 11400000, guid: b66280055cb13b64e82cd415c867c37a, type: 2}
+  actOptions: []

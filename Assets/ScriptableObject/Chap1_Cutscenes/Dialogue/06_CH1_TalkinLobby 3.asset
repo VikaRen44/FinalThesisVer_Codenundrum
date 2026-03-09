@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 06_CH1_TalkinLobby 3
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 0
+  defaultAutoAdvanceSeconds: 0.8
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: Mouse
+    text: Those sounds definetely came from here...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: This looks like a someone's bedroom...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: I don't think we should be in here...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: hmm?
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Look whats that?
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 5
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: hmm... This thing is some sort of memory cube...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: But its contents are a mess!
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Lucky for us, I know just the thing to help us sort the data contained
+      in this cube!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'We are going to use SORTING ALGORITHMS! '
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: What are sorting algorithms you may ask?
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Basically, a sorting algorithm is a method used to arrange items into a
+      proper order...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: like from smallest to biggest or from A to Z.
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 1
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*You give Mouse a confused look...'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Don't worry pal! I'll teach you the ropes!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: It's not as complicated as you think. Here read this to help you understand
+      more!
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1

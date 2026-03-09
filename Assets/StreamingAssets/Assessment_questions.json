@@ -1,0 +1,99 @@
+{
+  "questions": [
+    {
+      "question": "Why does the game compare the current card with the remaining unlocked cards?",
+      "choices": ["To mix the cards", "To find the correct order", "To restart the list", "To change the sorting rule"],
+      "correctIndex": 1
+    },
+    {
+      "question": "After a card locks, why is it no longer compared with other cards?",
+      "choices": ["Its number changes", "It is already in the correct spot", "It becomes hidden", "It combines with other cards"],
+      "correctIndex": 1
+    },
+    {
+      "question": "When sorting from Smallest → Largest, what decides the correct order?",
+      "choices": ["The number written on the card", "The file size shown on the card", "The color of the card", "The time it was created"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Why does the game move forward after a card locks?",
+      "choices": ["The earlier spots are already correct", "The sorting rule resets", "The timer restarts", "The cards are shuffled"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Why does the game choose one card first before checking the others?",
+      "choices": ["To fill a specific spot", "To randomize the game", "To remove extra cards", "To skip checking"],
+      "correctIndex": 0
+    },
+    {
+      "question": "If a card is switched but does not stay in the spot, what does that mean?",
+      "choices": ["The first card was already correct", "There is a better card to choose", "The sorting is finished", "The card should lock immediately"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Why does the game only check unlocked cards?",
+      "choices": ["Because they are not in the correct order yet", "Because locked cards are still wrong", "Because unlocked cards are invisible", "Because locked cards are random"],
+      "correctIndex": 0
+    },
+    {
+      "question": "What makes sure the earlier spots stay correct during the game?",
+      "choices": ["Checking them again every round", "The locking feature", "The timer limit", "Random shuffling"],
+      "correctIndex": 1
+    },
+    {
+      "question": "How does the minigame show how Selection Sort works?",
+      "choices": ["It fixes one spot at a time by checking cards", "It splits the list into two parts", "It keeps swapping all the cards", "It combines sorted groups"],
+      "correctIndex": 0
+    },
+    {
+      "question": "What does Box A automatically choose at the start of each round?",
+      "choices": ["The biggest card", "A random card", "The first card that is not locked", "The last locked card"],
+      "correctIndex": 2
+    },
+    {
+      "question": "What is the main goal of each round?",
+      "choices": ["To shuffle all cards", "To place one correct card in its proper spot", "To compare all cards many times", "To restart the order"],
+      "correctIndex": 1
+    },
+    {
+      "question": "What happens if the switched card is correct for that spot?",
+      "choices": ["It disappears", "Its number changes", "It locks in place", "It moves to the end"],
+      "correctIndex": 2
+    },
+    {
+      "question": "What tells the player whether to sort Smallest → Largest or Largest → Smallest?",
+      "choices": ["The timer", "The background color", "The sorting rule shown", "The number of cards"],
+      "correctIndex": 2
+    },
+    {
+      "question": "If the player picks a card that is not the smallest (or biggest), what should they do?",
+      "choices": ["Lock it right away", "Compare it with other unlocked cards", "Restart the game", "Remove the card"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Why does the game focus on the next card after one card locks in place?",
+      "choices": ["Because the previous card is already in the correct spot", "Because the timer resets", "Because the cards shuffle again", "Because the numbers change"],
+      "correctIndex": 0
+    },
+    {
+      "question": "What happens to the remaining cards after each correct lock?",
+      "choices": ["They increase", "They reset", "They become fewer", "They become hidden"],
+      "correctIndex": 2
+    },
+    {
+      "question": "Why is it important to check all remaining unlocked cards before switching?",
+      "choices": ["To make sure the correct card is chosen", "To activate checkpoints", "To restart the timer", "To shuffle the order"],
+      "correctIndex": 0
+    },
+    {
+      "question": "What would happen if the player ignores the sorting rule while picking cards?",
+      "choices": ["The sorted cards will grow faster", "The locking feature will not work correctly", "The cards will fix themselves", "The round will skip"],
+      "correctIndex": 1
+    },
+    {
+      "question": "How does the locking feature help players understand Selection Sort?",
+      "choices": ["It shows that once a card is correct, it stays there", "It hides wrong answers", "It makes the game faster", "It mixes the remaining cards"],
+      "correctIndex": 0
+    }
+  ]
+}

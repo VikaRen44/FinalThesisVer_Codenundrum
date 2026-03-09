@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 03_Hub_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 0
+  defaultAutoAdvanceSeconds: 0.8
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: Mouse
+    text: 'You''re lucky that you found me friend! '
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Since I can help you return to your original world!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Scattered across the DataSpace are what I call "key shards"...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'They are the keys that will help you open a portal back to where you need
+      to go! '
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: However they won't just appear to you that easily...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: You see those huge folders?
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*You nod'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Those are actually portals that will take us to other worlds that exist
+      in the DataSpace!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Each world has their own inhabitants, which I call "Hosts".
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: They're like me!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: But less charismatic and lovable and nice and...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: ...
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: ...
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: ...
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Anyway...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: 'To get the key shards you must first help the hosts with their own conundrums... '
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: After we help them solve these problems, the key shards will appear!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Then, we'll return back here so i can open the portals to other worlds
+      that contain other key shards...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: And after you have all the required key shards you can finally return home!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: Does that sound good to you?
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*You nod in agreement'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'Great! Lets start with this first one! '
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 2
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Just stand near the folder and it will let us in!
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587485fd3b8c4854e8ee9e84d5386a6a, type: 3}
+  m_Name: SelectSortTutorial
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceSO
+  pages:
+  - {fileID: 21300000, guid: 00b2497732b6bc34eb8f286f7cd77a13, type: 3}
+  - {fileID: 21300000, guid: c847d7610df455843a925e22689fd235, type: 3}
+  - {fileID: 21300000, guid: 6ddc1dba102e81d4fa7a133a2a29be54, type: 3}
+  - {fileID: 21300000, guid: aa9af5180b11ef44b9d0d71cf6469834, type: 3}
+  - {fileID: 21300000, guid: 9f7f07780373d4c4683fd60b1111bca4, type: 3}
+  - {fileID: 21300000, guid: 72aa243e9a86b1d4899015162b094b58, type: 3}
+  - {fileID: 21300000, guid: 913ce09604d6c174fa7369f24c2dafe6, type: 3}
+  - {fileID: 21300000, guid: c905ecc51c21fc447b7c8737e03165bf, type: 3}
+  - {fileID: 21300000, guid: 3876b5931a9bcdf4ab212e204103e7da, type: 3}
+  loop: 0

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fa32109a6aabe488faaae0bee8fb7f, type: 3}
+  m_Name: 02_Objective
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneSequenceSO
+  steps:
+  - type: 0
+    dialogue: {fileID: 11400000, guid: 886e3df65061c3f4fadce13a6f842839, type: 2}
+    waitUntilDialogueEnds: 1
+    ensureDialogueUIVisible: 1
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 1
+    waitSeconds: 0.4
+    objectiveId: 
+  - type: 5
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 11400000, guid: 20e2605f47a23f34282cc565014816a6, type: 2}
+    waitUntilTutorialClosed: 1
+    waitSeconds: 0.4
+    objectiveId: 02_objective
+  - type: 2
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0.4
+    objectiveId: 03_objective

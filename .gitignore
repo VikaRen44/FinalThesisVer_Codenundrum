@@ -1,0 +1,39 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# Visual Studio / Unity generated
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+.vsconfig
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Mobile build byproducts
+.gradle/
+*.apk
+*.aab
+*.obb
+
+# Xcode byproducts
+DerivedData/
+*.xcworkspace/
+*.xcuserdatad/
+*.xcuserstate

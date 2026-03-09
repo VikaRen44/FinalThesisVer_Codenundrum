@@ -1,0 +1,336 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 05_CH1_TalkinLobby 2
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 0
+  defaultAutoAdvanceSeconds: 0.8
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: ???
+    text: Get away from me!
+    portrait: {fileID: 21300000, guid: 058852535d19516498544db2cd8aee63, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 3
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Hey! were not bad people.
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 5
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: We just happen to stumble here and though you might need a hand.
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: I dont need any help! Specially from someone as tiny as you!
+    portrait: {fileID: 21300000, guid: 058852535d19516498544db2cd8aee63, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 3
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Alright, thats it! You ought to be taught some manners you little-
+    portrait: {fileID: 21300000, guid: 9317092641f3f754d8af7913c89bc123, type: 3}
+    clearPortraitIfNone: 0
+    emotion: 3
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*You smack mouse and deal -5hp'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Hey! What was that for!?
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: Pfftt! Hahahaha! Serves you tight!
+    portrait: {fileID: 21300000, guid: 470654cee0b483e4d9c07b53bbe4e93b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'Grrr! '
+    portrait: {fileID: 21300000, guid: 9317092641f3f754d8af7913c89bc123, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 3
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: So, who the heck are you two and what are you doing in my mouse?
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 
+    text: '*You introduce yourselves and explain your situation...'
+    portrait: {fileID: 0}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: I'm helping my friend here find their way home!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'Were trying to search for a key shard that might be hidden in your house. '
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Its the item that will help my buddy here return to their world!
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: ???
+    text: ...
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: "Not only are you annoying, you also talk a lot of nonsense. What are you
+      really doing here? \r\n"
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: 'I''M TELLING THE TRUTH! '
+    portrait: {fileID: 21300000, guid: 9317092641f3f754d8af7913c89bc123, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: Sureee... Whatever you say
+    portrait: {fileID: 21300000, guid: bdf2c20617b352b4b99709ee0df5c6f5, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: IM TELLI-
+    portrait: {fileID: 21300000, guid: 9317092641f3f754d8af7913c89bc123, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: Anyways, The name's Lizzy.
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: And since you're here to snoop around, why not help me out a bit?
+    portrait: {fileID: 21300000, guid: 470654cee0b483e4d9c07b53bbe4e93b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Mouse '
+    text: But you said you didn't need help-
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: 'Lizzy '
+    text: 'Changed my mind. It''s not everyday I get to have someone do my chores
+      for me.  '
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: ...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: ...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: ...
+    portrait: {fileID: 21300000, guid: 187bbd1323ce2ba45a31e48f24dfdac6, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: sigh... Fine...
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 4
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: 'Wonderful! '
+    portrait: {fileID: 21300000, guid: 470654cee0b483e4d9c07b53bbe4e93b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: For your first task, I was trying to catch some robomice earlier...
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: 'Those little critters have been scampering about and its driving me nuts! '
+    portrait: {fileID: 21300000, guid: 058852535d19516498544db2cd8aee63, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: Try searching upstairs... It might still be there.
+    portrait: {fileID: 21300000, guid: 177e0a6c25dadd949a094668e55c8a7b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Well... I guess thats a fair trade for letting us explore.
+    portrait: {fileID: 21300000, guid: 725ae35eec287b445a46259bfbf2c077, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Mouse
+    text: Come on! lets get to business!
+    portrait: {fileID: 21300000, guid: 3697e1d2fc2adcc48ba23a4aa5c8778e, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1
+  - speakerName: Lizzy
+    text: 'Appreciate it! '
+    portrait: {fileID: 21300000, guid: 470654cee0b483e4d9c07b53bbe4e93b, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: -1

@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fa32109a6aabe488faaae0bee8fb7f, type: 3}
+  m_Name: 12_CH1_Objective 7
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneSequenceSO
+  steps:
+  - type: 6
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0
+    objectiveId: 
+    turnSpeed: 6
+    angleTolerance: 0
+    explicitLookTarget: {fileID: 0}
+    playerTag: Player
+    hostTag: 'Host '
+    teleportTarget: {fileID: 0}
+    ownerChildTargetName: 
+    includeInactiveChildren: 0
+    moveSpeed: 0
+    hostPathRoot: {fileID: 0}
+    hostPathChildName: 
+    hostPathOnlyDirectChildren: 0
+    blackTransition: {fileID: 0}
+    fadeDuration: 0
+    minigameSceneName: 
+    returnSceneNameOverride: 
+    restorePlayerAndHostOnReturn: 1
+    restoreRotationOnReturn: 1
+    entryTransition: {fileID: 0}
+    entryTransitionDuration: 0.35
+    returnTransition: {fileID: 0}
+    returnTransitionDuration: 0.25
+  - type: 7
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0
+    objectiveId: 
+    turnSpeed: 6
+    angleTolerance: 0
+    explicitLookTarget: {fileID: 0}
+    playerTag: Player
+    hostTag: Host
+    teleportTarget: {fileID: 0}
+    ownerChildTargetName: 
+    includeInactiveChildren: 0
+    moveSpeed: 0
+    hostPathRoot: {fileID: 0}
+    hostPathChildName: 
+    hostPathOnlyDirectChildren: 0
+    blackTransition: {fileID: 0}
+    fadeDuration: 0
+    minigameSceneName: 
+    returnSceneNameOverride: 
+    restorePlayerAndHostOnReturn: 1
+    restoreRotationOnReturn: 1
+    entryTransition: {fileID: 0}
+    entryTransitionDuration: 0.35
+    returnTransition: {fileID: 0}
+    returnTransitionDuration: 0.25
+  - type: 0
+    dialogue: {fileID: 11400000, guid: b7d280bec4bdcc84796d4d3438982050, type: 2}
+    waitUntilDialogueEnds: 1
+    ensureDialogueUIVisible: 1
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0
+    objectiveId: 
+    turnSpeed: 6
+    angleTolerance: 0
+    explicitLookTarget: {fileID: 0}
+    playerTag: Player
+    hostTag: Host
+    teleportTarget: {fileID: 0}
+    ownerChildTargetName: 
+    includeInactiveChildren: 0
+    moveSpeed: 0
+    hostPathRoot: {fileID: 0}
+    hostPathChildName: 
+    hostPathOnlyDirectChildren: 0
+    blackTransition: {fileID: 0}
+    fadeDuration: 0
+    minigameSceneName: 
+    returnSceneNameOverride: 
+    restorePlayerAndHostOnReturn: 1
+    restoreRotationOnReturn: 1
+    entryTransition: {fileID: 0}
+    entryTransitionDuration: 0.35
+    returnTransition: {fileID: 0}
+    returnTransitionDuration: 0.25
+  - type: 14
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0
+    objectiveId: 13_CH1_objective
+    turnSpeed: 6
+    angleTolerance: 0
+    explicitLookTarget: {fileID: 0}
+    playerTag: Player
+    hostTag: Host
+    teleportTarget: {fileID: 0}
+    ownerChildTargetName: 
+    includeInactiveChildren: 0
+    moveSpeed: 0
+    hostPathRoot: {fileID: 0}
+    hostPathChildName: 
+    hostPathOnlyDirectChildren: 0
+    blackTransition: {fileID: 0}
+    fadeDuration: 0
+    minigameSceneName: 08_Nodes
+    returnSceneNameOverride: 05_Chapter1
+    restorePlayerAndHostOnReturn: 1
+    restoreRotationOnReturn: 1
+    entryTransition: {fileID: 11400000, guid: eee14c2ed9fe3c74cad34789cf2d324d, type: 2}
+    entryTransitionDuration: 0.35
+    returnTransition: {fileID: 11400000, guid: 729d594482e1e3e43b27d1526d65b8ef, type: 2}
+    returnTransitionDuration: 0.25
+  - type: 2
+    dialogue: {fileID: 0}
+    waitUntilDialogueEnds: 0
+    ensureDialogueUIVisible: 0
+    tutorial: {fileID: 0}
+    waitUntilTutorialClosed: 0
+    waitSeconds: 0
+    objectiveId: 13_CH1_objective
+    turnSpeed: 6
+    angleTolerance: 0
+    explicitLookTarget: {fileID: 0}
+    playerTag: Player
+    hostTag: Host
+    teleportTarget: {fileID: 0}
+    ownerChildTargetName: 
+    includeInactiveChildren: 0
+    moveSpeed: 0
+    hostPathRoot: {fileID: 0}
+    hostPathChildName: 
+    hostPathOnlyDirectChildren: 0
+    blackTransition: {fileID: 0}
+    fadeDuration: 0
+    minigameSceneName: 
+    returnSceneNameOverride: 
+    restorePlayerAndHostOnReturn: 1
+    restoreRotationOnReturn: 1
+    entryTransition: {fileID: 0}
+    entryTransitionDuration: 0.35
+    returnTransition: {fileID: 0}
+    returnTransitionDuration: 0.25

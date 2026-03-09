@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af1a120e61d4046b725d4bf4f573bf, type: 3}
+  m_Name: 01_CH1_Memory1
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDialogueSequenceSO
+  defaultTypingSfx: {fileID: 8300000, guid: 41c6af3979137354d8337f0d8b3c3e28, type: 3}
+  defaultTypingSfxVolume: 0.4
+  multiplyTypingByMasterVolume: 1
+  multiplyTypingByAudioListenerVolume: 0
+  masterVolumePrefsKey: settings_masterVolume
+  autoCreateMasterPrefsKeyIfMissing: 1
+  defaultMasterVolumeIfMissing: 1
+  tutorialBeforeDialogue: {fileID: 0}
+  tutorialAfterDialogue: {fileID: 0}
+  tutorialLinksPerLine: []
+  autoAdvanceByDefault: 1
+  defaultAutoAdvanceSeconds: 4
+  allowSkipAutoAdvanceWait: 1
+  lines:
+  - speakerName: 
+    text: 'Child: Papa! Papa! Look what I drew! '
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Ohoho! That\u2019s my girl! Hmm, This drawing is your most detailed
+      yet, I must say! I\u2019ve never seen mice look this cute."
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Child: Ehhhh! They\u2019re bunnies papa! You said this is my best drawing
+      yet! "
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: '*The little girl starts sobbing'
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Ohh hahaha! My bad sweetie! Maybe papa\u2019s eyes are getting
+      blurry. There there. \r\n"
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Child: Sniff sniff. I hate it when you joke around papa! '
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: "Father: Who says I\u2019m joking? They might not resemble bunnies, but
+      they are super cute just like you! My bestest daughter in the whole wide world!"
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
+  - speakerName: 
+    text: 'Child: Hahahaha! Stop it papa! That tickles! '
+    portrait: {fileID: 21300000, guid: 511d5079a9ada9049bc82f24e91a9fc4, type: 3}
+    clearPortraitIfNone: 1
+    emotion: 0
+    typingSfxOverride: {fileID: 0}
+    typingSfxVolume: 0
+    choices: []
+    autoAdvanceSeconds: 0
