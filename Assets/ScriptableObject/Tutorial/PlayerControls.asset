@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerControls
   m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceSO
   pages:
-  - {fileID: 21300000, guid: 2055f87e66c915641aacb7d1a9d683b5, type: 3}
-  - {fileID: 21300000, guid: de376b2f82c625f409e4bb6c7107719a, type: 3}
+  - {fileID: 21300000, guid: b22efaa16d5b9c34d8b4b5fa38bb65d4, type: 3}
+  - {fileID: 21300000, guid: 978129dd1838ba348a31449df01b8394, type: 3}
   loop: 0

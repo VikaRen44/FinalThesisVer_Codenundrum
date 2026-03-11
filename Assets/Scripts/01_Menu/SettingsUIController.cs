@@ -102,6 +102,22 @@ public class SettingsUIController : MonoBehaviour
     public bool startHiddenOnSceneLoad = true;
 
     // =========================================================
+    // ✅ NEW INPUT SYSTEM HOTKEYS (ADDED)
+    // =========================================================
+    [Header("Hotkey (New Input System)")]
+    [Tooltip("Optional. Assign your OpenSettings action here. Best if this is gamepad Start / menu only.")]
+    public InputActionReference toggleAction;
+
+    [Tooltip("Optional second action that can also open/close settings.")]
+    public InputActionReference secondaryToggleAction;
+
+    [Tooltip("Keyboard Escape fallback handled locally in Update.")]
+    public bool enableEscapeFallback = true;
+
+    [Tooltip("Optional keyboard Tab fallback.")]
+    public bool enableTabFallback = false;
+
+    // =========================================================
     // ✅ BADGES (NEW)
     // =========================================================
     [Header("Badges (NEW)")]
@@ -125,6 +141,10 @@ public class SettingsUIController : MonoBehaviour
 
     private Coroutine _focusRoutine;
 
+    // ✅ NEW
+    private bool _escWasDown;
+    private bool _tabWasDown;
+
     // =========================================================
     // ✅ STATIC ESC LISTENER (works even if object is inactive)
     // =========================================================
@@ -142,7 +162,6 @@ public class SettingsUIController : MonoBehaviour
     {
         if (s_hooked) return;
         s_hooked = true;
-
         InputSystem.onEvent += OnGlobalInputEvent;
         SceneManager.sceneLoaded += (_, __) => ForceHideOnLoadForAllControllers();
     }
@@ -169,7 +188,6 @@ public class SettingsUIController : MonoBehaviour
     private static void ForceHideOnLoadForAllControllers()
     {
         Scene active = SceneManager.GetActiveScene();
-
         var all = Resources.FindObjectsOfTypeAll<SettingsUIController>();
         if (all == null) return;
 
@@ -178,22 +196,29 @@ public class SettingsUIController : MonoBehaviour
             var c = all[i];
             if (c == null) continue;
             if (!c.startHiddenOnSceneLoad) continue;
-
             if (!c.gameObject.scene.IsValid()) continue;
             if (c.gameObject.scene != active) continue;
 
+            bool wasOpen = false;
+
             if (c.settingsRoot != null)
             {
+                wasOpen = c.settingsRoot.activeSelf;
                 if (c.settingsRoot.activeSelf)
                     c.settingsRoot.SetActive(false);
             }
             else
             {
+                wasOpen = c.gameObject.activeSelf;
                 if (c.gameObject.activeSelf)
                     c.gameObject.SetActive(false);
             }
 
-            // ✅ EXTRA SAFETY: if any controller masked bindings previously, clear it on scene load
+            // ✅ if the controller had already paused the game before we forced it hidden,
+            // undo that right here
+            if (wasOpen)
+                c.RestoreCloseState();
+
             if (c.playerInput != null && c.playerInput.actions != null)
                 c.playerInput.actions.bindingMask = null;
         }
@@ -208,14 +233,13 @@ public class SettingsUIController : MonoBehaviour
         if (all == null || all.Length == 0) return;
 
         Scene active = SceneManager.GetActiveScene();
-
         SettingsUIController target = null;
+
         for (int i = 0; i < all.Length; i++)
         {
             var c = all[i];
             if (c == null) continue;
             if (!c.enableEscToggle) continue;
-
             if (!c.gameObject.scene.IsValid()) continue;
             if (c.gameObject.scene != active) continue;
 
@@ -251,7 +275,6 @@ public class SettingsUIController : MonoBehaviour
     {
         if (applyButton) applyButton.onClick.AddListener(OnApplyClicked);
         if (cancelButton) cancelButton.onClick.AddListener(OnCancelClicked);
-
         if (masterSlider) masterSlider.onValueChanged.AddListener(OnMasterChanged);
 
         EnsureToggleGroup();
@@ -270,8 +293,18 @@ public class SettingsUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        CacheCursorState();
-        ApplyOpenState();
+        if (toggleAction != null && toggleAction.action != null)
+            toggleAction.action.Enable();
+
+        if (secondaryToggleAction != null && secondaryToggleAction.action != null)
+            secondaryToggleAction.action.Enable();
+
+        _escWasDown = false;
+        _tabWasDown = false;
+
+        // ❌ DO NOT pause/open-state here anymore
+        // CacheCursorState();
+        // ApplyOpenState();
 
         _working = LoadFromPrefs();
         _applied = _working.Copy();
@@ -282,23 +315,33 @@ public class SettingsUIController : MonoBehaviour
         RefreshUI();
         ApplyPreview(_working);
         UpdateApplyInteractable();
-
         RefreshReturnToMenuVisibility();
 
-        // ✅ NEW: Refresh badge icons whenever settings opens
-        RefreshBadgesUI();
-
-        StartFocusOnOpen();
+        // only do visual focus stuff if the settings is actually open
+        bool open = (settingsRoot != null) ? settingsRoot.activeInHierarchy : gameObject.activeInHierarchy;
+        if (open)
+        {
+            RefreshBadgesUI();
+            StartFocusOnOpen();
+        }
     }
 
     private void OnDisable()
     {
+        if (toggleAction != null && toggleAction.action != null)
+            toggleAction.action.Disable();
+
+        if (secondaryToggleAction != null && secondaryToggleAction.action != null)
+            secondaryToggleAction.action.Disable();
+
         RestoreCloseState();
         StopFocusRoutine();
     }
 
     private void Update()
     {
+        HandleToggleInput();
+
         if (!keepSelectionAlive) return;
 
         bool open = (settingsRoot != null) ? settingsRoot.activeInHierarchy : gameObject.activeInHierarchy;
@@ -311,9 +354,81 @@ public class SettingsUIController : MonoBehaviour
         {
             if (confirmModal != null && confirmModal.IsOpen()) return;
             if (infoModal != null && infoModal.IsOpen()) return;
-
             ForceSelectFirst();
         }
+    }
+
+    // =========================================================
+    // ✅ NEW: LOCAL HOTKEY HANDLER
+    // =========================================================
+    private void HandleToggleInput()
+    {
+        bool triggered = false;
+
+        if (toggleAction != null && toggleAction.action != null && toggleAction.action.WasPressedThisFrame())
+            triggered = true;
+
+        if (!triggered && secondaryToggleAction != null && secondaryToggleAction.action != null &&
+            secondaryToggleAction.action.WasPressedThisFrame())
+            triggered = true;
+
+        if (!triggered && !enableEscToggle && enableEscapeFallback)
+        {
+            var kb = Keyboard.current;
+            if (kb != null && kb.escapeKey != null)
+            {
+                bool down = kb.escapeKey.isPressed;
+                if (down && !_escWasDown)
+                    triggered = true;
+
+                _escWasDown = down;
+            }
+        }
+        else
+        {
+            _escWasDown = false;
+        }
+
+        if (!triggered && enableTabFallback)
+        {
+            var kb = Keyboard.current;
+            if (kb != null && kb.tabKey != null)
+            {
+                bool down = kb.tabKey.isPressed;
+                if (down && !_tabWasDown)
+                    triggered = true;
+
+                _tabWasDown = down;
+            }
+        }
+        else
+        {
+            _tabWasDown = false;
+        }
+
+        if (triggered)
+            ToggleSettingsFromHotkey();
+    }
+
+    private void ToggleSettingsFromHotkey()
+    {
+        if (confirmModal != null && confirmModal.IsOpen()) return;
+        if (infoModal != null && infoModal.IsOpen()) return;
+
+        bool isOpen = (settingsRoot != null)
+            ? settingsRoot.activeInHierarchy
+            : gameObject.activeInHierarchy;
+
+        if (!isOpen)
+        {
+            OpenSettingsUI();
+            return;
+        }
+
+        if (escActsLikeCancel)
+            OnCancelClicked();
+        else
+            CloseSettingsUI();
     }
 
     // =========================================================
@@ -321,6 +436,10 @@ public class SettingsUIController : MonoBehaviour
     // =========================================================
     public void OpenSettingsUI()
     {
+        bool wasOpen = (settingsRoot != null)
+            ? settingsRoot.activeInHierarchy
+            : gameObject.activeInHierarchy;
+
         if (settingsRoot != null)
         {
             if (!settingsRoot.activeInHierarchy)
@@ -331,7 +450,14 @@ public class SettingsUIController : MonoBehaviour
             if (!gameObject.activeInHierarchy)
                 gameObject.SetActive(true);
         }
-        // OnEnable handles the rest.
+
+        if (!wasOpen)
+        {
+            CacheCursorState();
+            ApplyOpenState();
+            RefreshBadgesUI();
+            StartFocusOnOpen();
+        }
     }
 
     private void StartFocusOnOpen()
@@ -368,8 +494,7 @@ public class SettingsUIController : MonoBehaviour
             if (masterSlider != null) target = masterSlider.gameObject;
             else if (applyButton != null) target = applyButton.gameObject;
             else if (cancelButton != null) target = cancelButton.gameObject;
-            else if (returnToMenuButton != null && returnToMenuButton.gameObject.activeInHierarchy)
-                target = returnToMenuButton.gameObject;
+            else if (returnToMenuButton != null && returnToMenuButton.gameObject.activeInHierarchy) target = returnToMenuButton.gameObject;
         }
 
         if (target == null || !target.activeInHierarchy) return;
@@ -386,8 +511,7 @@ public class SettingsUIController : MonoBehaviour
 
     private void ApplyOpenState()
     {
-        if (pauseGameWhileOpen)
-            Time.timeScale = 0f;
+        if (pauseGameWhileOpen) Time.timeScale = 0f;
 
         if (showCursorWhileOpen)
         {
@@ -604,7 +728,6 @@ public class SettingsUIController : MonoBehaviour
     private void ForceToggleToKeyboard()
     {
         _suppressToggleCallbacks = true;
-
         _working.inputMode = InputMode.Keyboard;
 
         if (keyboardToggle) keyboardToggle.SetIsOnWithoutNotify(true);
@@ -656,8 +779,10 @@ public class SettingsUIController : MonoBehaviour
     {
         var d = new GameSettingsData();
         d.masterVolume01 = Mathf.Clamp01(PlayerPrefs.GetFloat(prefsKey, 1f));
+
         string mode = PlayerPrefs.GetString(PREF_INPUTMODE, "Keyboard");
         d.inputMode = (mode == "Gamepad") ? InputMode.Gamepad : InputMode.Keyboard;
+
         return d;
     }
 
@@ -688,7 +813,8 @@ public class SettingsUIController : MonoBehaviour
         if (mode == InputMode.Keyboard)
         {
             // Just switch scheme; don't mask bindings.
-            playerInput.SwitchCurrentControlScheme(keyboardSchemeName, Keyboard.current, Mouse.current);
+            if (Keyboard.current != null && Mouse.current != null)
+                playerInput.SwitchCurrentControlScheme(keyboardSchemeName, Keyboard.current, Mouse.current);
         }
         else
         {
@@ -704,10 +830,8 @@ public class SettingsUIController : MonoBehaviour
 
     private void CloseSettingsUI()
     {
-        if (settingsRoot)
-            settingsRoot.SetActive(false);
-        else
-            gameObject.SetActive(false);
+        if (settingsRoot) settingsRoot.SetActive(false);
+        else gameObject.SetActive(false);
 
         RestoreCloseState();
 

@@ -34,6 +34,13 @@ public class DialogueManager : MonoBehaviour
     public Button dialogueButton;
     public GameObject gameplayRoot;
 
+    [Header("Continue Icon (Optional)")]
+    [Tooltip("Optional continue / press E icon shown while dialogue is active.")]
+    public GameObject continueIcon;
+
+    [Tooltip("If true, the continue icon is shown while dialogue is active.")]
+    public bool showContinueIconWhileDialogue = true;
+
     [Header("Background System")]
     public Image backgroundImage;
     public Sprite[] allBackgroundSprites;
@@ -58,6 +65,13 @@ public class DialogueManager : MonoBehaviour
     public bool useEToAdvance = true;
     public bool allowButtonClick = true;
 
+    [Header("Controller Advance Input")]
+    [Tooltip("If true, controller input can also advance dialogue.")]
+    public bool useGamepadToAdvance = true;
+
+    [Tooltip("If true, the South button advances dialogue (A on Xbox / Cross on PlayStation).")]
+    public bool allowSouthButtonToAdvance = true;
+
     [Header("Advance SFX")]
     public AudioSource sfxSource;
     public AudioClip advanceSfx;
@@ -74,7 +88,7 @@ public class DialogueManager : MonoBehaviour
     private int _lastAdvanceFrame = -999;
     private bool _warnedMissingSfxOnce = false;
 
-    // ✅ NEW: optional callback fired when dialogue fully ends
+    // optional callback fired when dialogue fully ends
     private Action _onDialogueComplete;
 
     private static readonly Regex _parenSuffix = new Regex(@"\s*\(\d+\)\s*$", RegexOptions.Compiled);
@@ -86,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         RefreshPortraitDictionary();
         EnsureSfxSourceReady();
         BuildBackgroundDictionary();
+        SetContinueIconVisible(false);
     }
 
     private void OnEnable()
@@ -93,6 +108,14 @@ public class DialogueManager : MonoBehaviour
         RefreshPortraitDictionary();
         EnsureSfxSourceReady();
         BuildBackgroundDictionary();
+
+        if (!dialogueActive)
+            SetContinueIconVisible(false);
+    }
+
+    private void OnDisable()
+    {
+        SetContinueIconVisible(false);
     }
 
 #if UNITY_EDITOR
@@ -109,7 +132,18 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueActive) return;
 
-        if (useEToAdvance && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        bool keyboardAdvance =
+            useEToAdvance &&
+            Keyboard.current != null &&
+            Keyboard.current.eKey.wasPressedThisFrame;
+
+        bool gamepadAdvance =
+            useGamepadToAdvance &&
+            allowSouthButtonToAdvance &&
+            Gamepad.current != null &&
+            Gamepad.current.buttonSouth.wasPressedThisFrame;
+
+        if (keyboardAdvance || gamepadAdvance)
         {
             Advance();
         }
@@ -117,13 +151,13 @@ public class DialogueManager : MonoBehaviour
 
     public bool IsDialogueActive() => dialogueActive;
 
-    // ✅ OLD VERSION STILL SUPPORTED
+    // OLD VERSION STILL SUPPORTED
     public void StartDialogue(DialogueLine[] dialogueLines)
     {
         StartDialogue(dialogueLines, null);
     }
 
-    // ✅ NEW OVERLOAD WITH CALLBACK
+    // NEW OVERLOAD WITH CALLBACK
     public void StartDialogue(DialogueLine[] dialogueLines, Action onComplete)
     {
         _onDialogueComplete = onComplete;
@@ -143,6 +177,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         dialogueActive = true;
+        SetContinueIconVisible(showContinueIconWhileDialogue);
 
         if (dialogueButton != null)
         {
@@ -184,6 +219,8 @@ public class DialogueManager : MonoBehaviour
 
         UpdatePortrait(currentLine.portraitName);
         UpdateBackground(currentLine.backgroundName);
+
+        SetContinueIconVisible(showContinueIconWhileDialogue && dialogueActive);
     }
 
     void UpdateBackground(string backgroundName)
@@ -290,15 +327,23 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(false);
 
         dialogueActive = false;
+        SetContinueIconVisible(false);
 
         if (gameplayRoot != null)
             gameplayRoot.SetActive(true);
 
-        // ✅ NEW: invoke callback after normal dialogue cleanup
         Action callback = _onDialogueComplete;
         _onDialogueComplete = null;
 
         callback?.Invoke();
+    }
+
+    private void SetContinueIconVisible(bool visible)
+    {
+        if (continueIcon == null) return;
+        if (continueIcon.activeSelf == visible) return;
+
+        continueIcon.SetActive(visible);
     }
 
     // =========================
@@ -354,7 +399,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerable<string> BuildKeysForSpriteName(string spriteName)
     {
-        string fixedName = autoFixCommonTypoFixes(spriteName);
+        string fixedName = AutoFixCommonTypoFixes(spriteName);
 
         yield return fixedName;
 
@@ -362,7 +407,8 @@ public class DialogueManager : MonoBehaviour
         yield return stripped;
 
         string norm = NormalizeKey(fixedName);
-        if (!string.IsNullOrEmpty(norm)) yield return norm;
+        if (!string.IsNullOrEmpty(norm))
+            yield return norm;
     }
 
     private string ApplyCommonTypoFixes(string s)
@@ -404,7 +450,7 @@ public class DialogueManager : MonoBehaviour
         return sb.ToString();
     }
 
-    private string autoFixCommonTypoFixes(string s)
+    private string AutoFixCommonTypoFixes(string s)
     {
         if (!autoFixCommonTypos) return s;
         return ApplyCommonTypoFixes(s);

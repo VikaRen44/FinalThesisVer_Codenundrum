@@ -37,6 +37,11 @@ public class WorldInteractable : MonoBehaviour
     [Tooltip("If true, hides DialogueUI's PressE/Continue icon ONLY for this interactable while its dialogue/prompt is active.")]
     public bool hidePressContinueIcon = false;
 
+    // ✅ NEW: optional objective gate
+    [Header("Objective Gate (Optional)")]
+    [Tooltip("If set, this interactable will only stay active while this objective is the CURRENT active objective. Leave empty for normal behavior.")]
+    public string requiredActiveObjectiveId = "";
+
     // ---------------- CHAPTER PORTAL MODE ----------------
     [Header("CHAPTER PORTAL (optional)")]
     [Tooltip("If true, entering this trigger will prompt a Yes/No to enter a chapter scene.")]
@@ -90,6 +95,9 @@ public class WorldInteractable : MonoBehaviour
     private bool _pressContinueWasActive = true;
     private Coroutine _restorePressCoroutine;
 
+    // ✅ NEW: objective gate state tracking
+    private bool _objectiveGateLastAllowed = true;
+
     private void Reset()
     {
         var col = GetComponent<Collider>();
@@ -114,11 +122,14 @@ public class WorldInteractable : MonoBehaviour
         if (_cachedInteract != null && !_cachedInteract.enabled)
             _cachedInteract.Enable();
 
+        ApplyObjectiveGateImmediate();
+
         if (verboseLogs)
         {
             Debug.Log($"[WorldInteractable] '{name}' Start() " +
                       $"portal={isChapterPortal} autoPrompt={autoPromptOnEnter} targetScene='{targetSceneName}' " +
-                      $"interactAction='{(_cachedInteract != null ? _cachedInteract.name : "NULL")}'");
+                      $"interactAction='{(_cachedInteract != null ? _cachedInteract.name : "NULL")}' " +
+                      $"requiredObjective='{requiredActiveObjectiveId}'");
         }
     }
 
@@ -127,6 +138,8 @@ public class WorldInteractable : MonoBehaviour
         _cachedInteract = (interactAction != null) ? interactAction.action : _cachedInteract;
         if (_cachedInteract != null && !_cachedInteract.enabled)
             _cachedInteract.Enable();
+
+        ApplyObjectiveGateImmediate();
     }
 
     private void OnDisable()
@@ -145,6 +158,7 @@ public class WorldInteractable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
+        if (!IsAllowedByObjectiveGate()) return;
 
         _playerInRange = true;
 
@@ -176,6 +190,9 @@ public class WorldInteractable : MonoBehaviour
 
     private void Update()
     {
+        ApplyObjectiveGateImmediate();
+
+        if (!IsAllowedByObjectiveGate()) return;
         if (!_playerInRange) return;
 
         var mgr = GetDialogueManager();
@@ -209,7 +226,8 @@ public class WorldInteractable : MonoBehaviour
                 yield return null;
         }
 
-        TryOpenChapterPrompt();
+        if (IsAllowedByObjectiveGate())
+            TryOpenChapterPrompt();
 
         _interactRoutineRunning = false;
     }
@@ -251,6 +269,58 @@ public class WorldInteractable : MonoBehaviour
         }
 
         return null;
+    }
+
+    // =========================================================
+    // ✅ NEW: Objective Gate Handling
+    // =========================================================
+    private bool IsAllowedByObjectiveGate()
+    {
+        if (string.IsNullOrWhiteSpace(requiredActiveObjectiveId))
+            return true;
+
+        if (ObjectiveManager.Instance == null)
+            return false;
+
+        return ObjectiveManager.Instance.IsObjectiveActive(requiredActiveObjectiveId);
+    }
+
+    private void ApplyObjectiveGateImmediate()
+    {
+        bool allowed = IsAllowedByObjectiveGate();
+
+        if (_objectiveGateLastAllowed == allowed && gameObject.activeSelf == allowed)
+        {
+            if (promptObject != null && !allowed && promptObject.activeSelf)
+                promptObject.SetActive(false);
+            return;
+        }
+
+        _objectiveGateLastAllowed = allowed;
+
+        if (!allowed)
+        {
+            _playerInRange = false;
+
+            if (promptObject != null)
+                promptObject.SetActive(false);
+
+            RestorePressContinueImmediate();
+
+            if (verboseLogs)
+                Debug.Log($"[WorldInteractable] '{name}': Disabled by objective gate. Required active objective = '{requiredActiveObjectiveId}'");
+
+            if (gameObject.activeSelf)
+                gameObject.SetActive(false);
+        }
+        else
+        {
+            if (verboseLogs && !gameObject.activeSelf)
+                Debug.Log($"[WorldInteractable] '{name}': Enabled by objective gate. Active objective matched '{requiredActiveObjectiveId}'");
+
+            if (!gameObject.activeSelf)
+                gameObject.SetActive(true);
+        }
     }
 
     // =========================================================
@@ -335,6 +405,7 @@ public class WorldInteractable : MonoBehaviour
     private void TryOpenChapterPrompt()
     {
         if (!isChapterPortal) return;
+        if (!IsAllowedByObjectiveGate()) return;
 
         if (requireExitToRePrompt && _portalPromptedThisEnter)
         {
@@ -438,13 +509,16 @@ public class WorldInteractable : MonoBehaviour
                 yield return null;
         }
 
-        InteractClassic();
+        if (IsAllowedByObjectiveGate())
+            InteractClassic();
 
         _interactRoutineRunning = false;
     }
 
     private void InteractClassic()
     {
+        if (!IsAllowedByObjectiveGate()) return;
+
         var mgr = GetDialogueManager();
         if (mgr == null)
         {

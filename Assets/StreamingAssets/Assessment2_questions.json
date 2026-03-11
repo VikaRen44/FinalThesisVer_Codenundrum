@@ -1,43 +1,68 @@
 {
   "questions": [
     {
-      "question": "What is the main goal of Heap Sort?",
-      "choices": ["To mix items randomly", "To arrange items based on importance", "To remove items", "To color items"],
-      "correctIndex": 1
-    },
-    {
-      "question": "Before sorting begins, what must be created first?",
-      "choices": ["A final ordered list", "A priority structure", "A random group", "A storage box"],
-      "correctIndex": 1
-    },
-    {
-      "question": "In Heap Sort, which item is placed at the top of the structure?",
-      "choices": ["The smallest item", "The newest item", "The most important item", "Any item"],
+      "question": "A heap is best described as:",
+      "choices": ["A random pile", "A sorted list", "An organized structure (tree) with priority rules", "A single node"],
       "correctIndex": 2
     },
     {
-      "question": "Why is the most important item placed at the top?",
-      "choices": ["To decorate the list", "To make it easy to remove first", "To stop sorting", "To hide other items"],
-      "correctIndex": 1
+      "question": "In a Max-Heap, which value is at the top?",
+      "choices": ["The smallest", "The average", "The largest", "A random value"],
+      "correctIndex": 2
     },
     {
-      "question": "What happens after the top item is removed?",
-      "choices": ["Sorting ends", "The remaining items are rearranged", "Items disappear", "Nothing changes"],
-      "correctIndex": 1
-    },
-    {
-      "question": "Why must the remaining items rearrange after removing one?",
-      "choices": ["To keep the correct order of importance", "To make sorting slower", "To mix the items", "To reduce the list size"],
+      "question": "In a Min-Heap, which value is at the top?",
+      "choices": ["The smallest", "The average", "The largest", "A random value"],
       "correctIndex": 0
     },
     {
-      "question": "How are items placed into their final order?",
+      "question": "In a Max-Heap tree, what do you call the node above other nodes?",
+      "choices": ["The kids", "The parent", "The fathers", "Branch"],
+      "correctIndex": 1
+    },
+    {
+      "question": "In the story, building a heap represents:",
+      "choices": ["Structuring priorities before taking action", "Avoiding difficult decisions", "Forgetting memories", "A random value"],
+      "correctIndex": 0
+    },
+    {
+      "question": "If Faith puts less important items first instead of the most important ones, what structure does this resemble?",
+      "choices": ["A correct max-heap", "A min-heap when a max-heap is required", "A sorted array", "A stack"],
+      "correctIndex": 1
+    },
+    {
+      "question": "What is the goal when building a heap?",
+      "choices": ["To randomly arrange the items", "To organize the items so they follow the heap rule", "To remove the smallest item", "To reverse the order of all items"],
+      "correctIndex": 1
+    },
+    {
+      "question": "What is the main goal of Heap Sort?",
+      "choices": ["To arrange items in order", "To mix items randomly", "To remove items", "To color items"],
+      "correctIndex": 0
+    },
+    {
+      "question": "If the goal is to sort items in ASCENDING order using Heap Sort, what kind of heap are you making?",
+      "choices": ["Max-Heap", "Min-Heap", "Either works the same way", "Neither"],
+      "correctIndex": 0
+    },
+    {
+      "question": "If the goal is to sort items in DESCENDING order using Heap Sort, what kind of heap are you making?",
+      "choices": ["Max-Heap", "Min-Heap", "Either works the same way", "Neither"],
+      "correctIndex": 1
+    },
+    {
+      "question": "In Heap Sort, how are items placed into their final order?",
       "choices": ["All at once", "One at a time", "Two at a time", "Randomly"],
       "correctIndex": 1
     },
     {
-      "question": "What happens to the group of items as sorting continues?",
-      "choices": ["It grows bigger", "It stays the same", "It becomes smaller", "It disappears"],
+      "question": "What makes Heap Sort different from simple sorting methods?",
+      "choices": ["It uses a heap structure to organize items", "It never moves items", "It works randomly", "It avoids structure"],
+      "correctIndex": 0
+    },
+    {
+      "question": "As more items are placed correctly, what happens to the unsorted group?",
+      "choices": ["It increases", "It stays the same", "It decreases", "It duplicates"],
       "correctIndex": 2
     },
     {
@@ -46,59 +71,34 @@
       "correctIndex": 2
     },
     {
-      "question": "Why is Heap Sort considered step-by-step?",
-      "choices": ["Because it sorts everything instantly", "Because it places one correct item at a time", "Because it avoids comparison", "Because it skips items"],
+      "question": "What is the main goal of the QuickSort algorithm?",
+      "choices": ["To shuffle numbers randomly", "To sort items into order", "To delete numbers", "To duplicate numbers"],
       "correctIndex": 1
     },
     {
-      "question": "What decides which item is handled first in Heap Sort?",
-      "choices": ["Its color", "Its size", "Its importance", "Its position"],
+      "question": "In QuickSort, what is a pivot?",
+      "choices": ["The smallest number", "The largest number", "A chosen number used to compare other numbers", "The final answer"],
       "correctIndex": 2
     },
     {
-      "question": "If the structure is not rearranged properly after removing the top item, what could happen?",
-      "choices": ["Sorting becomes faster", "The result may be incorrect", "Nothing changes", "Items become larger"],
+      "question": "What step in Quick Sort divides numbers into groups around the pivot?",
+      "choices": ["Searching for numbers", "Dividing the numbers into groups", "Deleting numbers", "Combining numbers together"],
       "correctIndex": 1
     },
     {
-      "question": "What makes Heap Sort different from simple sorting methods?",
-      "choices": ["It uses importance to organize items", "It never moves items", "It works randomly", "It avoids structure"],
+      "question": "After grouping the numbers around a pivot, what happens next?",
+      "choices": ["The algorithm stops immediately", "The process repeats on the smaller groups", "All numbers are deleted", "The pivot changes color"],
+      "correctIndex": 1
+    },
+    {
+      "question": "What do you do with numbers smaller than the pivot?",
+      "choices": ["Put them in the Less Than group", "Delete them", "Ignore them", "Turn them into pivots"],
       "correctIndex": 0
     },
     {
-      "question": "Why can’t all items be placed directly into final order at the start?",
-      "choices": ["Because they must first be organized by importance", "Because the list is too long", "Because sorting is random", "Because items are hidden"],
+      "question": "What is the final result after repeating the grouping process many times?",
+      "choices": ["The numbers become sorted in order", "The numbers disappear", "The pivot changes value", "The numbers stay random"],
       "correctIndex": 0
-    },
-    {
-      "question": "What happens every time the most important item is removed?",
-      "choices": ["The process stops", "The remaining items adjust again", "The list resets", "Items are deleted permanently"],
-      "correctIndex": 1
-    },
-    {
-      "question": "Why is organizing by importance helpful in sorting?",
-      "choices": ["It removes the need to compare", "It ensures the correct item is chosen each time", "It avoids movement", "It hides mistakes"],
-      "correctIndex": 1
-    },
-    {
-      "question": "What is repeated during Heap Sort?",
-      "choices": ["Mixing items", "Removing the top item and rearranging", "Deleting items", "Coloring items"],
-      "correctIndex": 1
-    },
-    {
-      "question": "As more items are placed correctly, what happens to the unsorted group?",
-      "choices": ["It increases", "It stays the same", "It decreases", "It duplicates"],
-      "correctIndex": 2
-    },
-    {
-      "question": "Why is Heap Sort reliable?",
-      "choices": ["Because it follows clear rules each step", "Because it guesses", "Because it skips steps", "Because it ignores order"],
-      "correctIndex": 0
-    },
-    {
-      "question": "What is the most important idea to remember about Heap Sort?",
-      "choices": ["Sorting is random", "Organizing by importance leads to correct order", "Items should stay mixed", "Only numbers can be sorted"],
-      "correctIndex": 1
     }
   ]
 }

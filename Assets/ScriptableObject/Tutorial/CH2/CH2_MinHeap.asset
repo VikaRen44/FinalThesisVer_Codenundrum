@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587485fd3b8c4854e8ee9e84d5386a6a, type: 3}
+  m_Name: CH2_MinHeap
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceSO
+  pages:
+  - {fileID: 21300000, guid: 5eef590a727fcf4428dcda85db32a5bf, type: 3}
+  - {fileID: 21300000, guid: 01ad18a1115ac90448d4ce96b7b9fbe1, type: 3}
+  - {fileID: 21300000, guid: eabcd1d0f7302224cabae2b5c1529857, type: 3}
+  - {fileID: 21300000, guid: f3f160aab62459a40be044acd80b8f89, type: 3}
+  - {fileID: 21300000, guid: be06031c0446848429a8c5e8792e13a1, type: 3}
+  - {fileID: 21300000, guid: 29702448ba3beef45ae8ee925085dd1d, type: 3}
+  - {fileID: 21300000, guid: ef73ef6607604d5458f27d62a286b560, type: 3}
+  - {fileID: 21300000, guid: 4daecc862cb89ad4686b5b59bf24b0c7, type: 3}
+  loop: 0

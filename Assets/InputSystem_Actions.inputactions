@@ -211,7 +211,7 @@
                 {
                     "name": "",
                     "id": "66b66110-aa2f-4fac-bf8f-ecd1b2d5aef9",
-                    "path": "<Gamepad>/select",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -222,7 +222,7 @@
                 {
                     "name": "",
                     "id": "fb827e37-41a0-4785-8482-80006fa1d879",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -610,6 +610,15 @@
                     "name": "Switch",
                     "type": "Button",
                     "id": "b74b63cb-0f26-4d51-8ccf-a87d29a1ff17",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenSaveLoad",
+                    "type": "Button",
+                    "id": "62ea5a01-3d50-4d2d-af70-bc87b7f03fe7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1071,7 +1080,7 @@
                 {
                     "name": "",
                     "id": "3dc9deb9-903f-4258-bc2c-0d969b9d2a2d",
-                    "path": "<Gamepad>/select",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -1081,8 +1090,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2740f428-82f6-4034-a03e-04b65cfc3a70",
-                    "path": "<Keyboard>/tab",
+                    "id": "3d0d9538-c6a8-4c38-b52d-ef3001632749",
+                    "path": "<XInputController>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1097,6 +1106,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "OpenTutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62d9d5bb-52c9-4234-b616-2e1e123cc09d",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenTutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9750844-e3e3-46c1-a23f-ee11d1af3480",
+                    "path": "<XInputController>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "OpenTutorial",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1120,6 +1151,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffcbaba9-18a7-4e68-92da-a923a4af5043",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSaveLoad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5deaf10-e58b-45fa-8112-996d576845fc",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSaveLoad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7da6c663-6d9d-4ea3-907b-e366862abf2b",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSaveLoad",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

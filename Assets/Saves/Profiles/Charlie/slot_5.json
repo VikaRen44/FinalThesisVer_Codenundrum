@@ -1,0 +1,32 @@
+﻿{
+    "sceneName": "04_Gamehub",
+    "saveLabel": "04_Gamehub - 00:06:41",
+    "totalPlaytimeSeconds": 402,
+    "realWorldUnixSeconds": 1773242450,
+    "playerName": "Charlie",
+    "selectedCharacterIndex": 1,
+    "hasSelectedCharacterIndex": true,
+    "selectedCharacterPrefabName": "MCFem@Avatar",
+    "objectivePayloadJson": "{\"profileKey\":\"default\",\"context\":0,\"currentIndex\":2,\"battleKeys\":[],\"battleValues\":[],\"contextKeys\":[\"default|Hub\"],\"contextCurrentIndex\":[2],\"ctxOwner\":[],\"ctxKey\":[],\"ctxVal\":[]}",
+    "rewardPayloadJson": "{\"unlockedRewards\":[\"CH1_COMPLETE\",\"CompleteAssessment1\",\"CH2_COMPLETE\",\"CompleteAssessment2\"],\"pendingRewards\":[]}",
+    "assessmentScorePayloadJson": "{\"entries\":[{\"key\":\"CH1_ASSESS\",\"bestScore\":5,\"totalQuestions\":19},{\"key\":\"CH2_ASSESS\",\"bestScore\":5,\"totalQuestions\":20}]}",
+    "currentRoute": 2,
+    "hasCurrentRoute": true,
+    "player": {
+        "px": 0.3462557792663574,
+        "py": -2.8685009479522707,
+        "pz": 20.999544143676759,
+        "rx": 0.0,
+        "ry": 305.579833984375,
+        "rz": 0.0
+    },
+    "host": {
+        "px": 0.0,
+        "py": 0.0,
+        "pz": 0.0,
+        "rx": 0.0,
+        "ry": 0.0,
+        "rz": 0.0
+    },
+    "objects": []
+}
