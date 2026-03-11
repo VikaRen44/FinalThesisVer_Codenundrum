@@ -153,6 +153,15 @@ public class LoadCharacter : MonoBehaviour
         s_selectedCharacterIndex = 0;
     }
 
+    // ✅ NEW: single helper for fresh New Game reset
+    public static void ClearAllRuntimePoseMemory()
+    {
+        ClearHubPose();
+        ClearReturnPose();
+
+        Debug.Log("[LoadCharacter] ✅ Cleared all runtime pose memory (HubPose + ReturnPose).");
+    }
+
     /// <summary>
     /// Robustly infers character index by matching player object name (or root name) vs prefab names.
     /// Returns -1 if cannot match.

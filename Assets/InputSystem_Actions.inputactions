@@ -1081,6 +1081,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2740f428-82f6-4034-a03e-04b65cfc3a70",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSettings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cda91c36-39fd-4fc8-b814-f55441252c82",
                     "path": "<Keyboard>/tab",
                     "interactions": "",

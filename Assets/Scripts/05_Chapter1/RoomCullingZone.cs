@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[DefaultExecutionOrder(-500)]
+[DefaultExecutionOrder(-1000)]
 [RequireComponent(typeof(Collider))]
 public class RoomCullingZone : MonoBehaviour
 {
-    [Tooltip("Objects in this room that should be culled (disabled until player enters).")]
+    [Tooltip("Objects in this room that should be culled (disabled until player enters or is close enough).")]
     public GameObject[] roomObjects;
 
     [Header("Stability")]
@@ -14,25 +14,35 @@ public class RoomCullingZone : MonoBehaviour
     public float minSwitchInterval = 0.12f;
 
     [Tooltip("Wait 1 frame before applying activation during normal trigger-based activation.")]
-    public bool delayActivationByOneFrame = true;
+    public bool delayActivationByOneFrame = false;
 
-    [Header("Start / Teleport Safety")]
+    [Header("Startup / Build Safety")]
     [Tooltip("Continuously re-check player position for a few startup frames.")]
     public bool recheckPlayerOnStart = true;
 
-    [Range(1, 20)]
+    [Range(1, 30)]
     [Tooltip("How many rendered frames after Start to re-check zone ownership.")]
-    public int startRecheckFrames = 6;
+    public int startRecheckFrames = 10;
 
     [Range(1, 20)]
     [Tooltip("How many fixed steps after Start to re-check zone ownership.")]
-    public int startRecheckFixedSteps = 4;
+    public int startRecheckFixedSteps = 8;
 
     [Tooltip("If no active zone exists, keep trying to resolve one every FixedUpdate.")]
     public bool keepResolvingUntilActive = true;
 
     [Tooltip("Extra tolerance when checking if a point is inside this zone.")]
     public float insideTolerance = 0.08f;
+
+    [Header("Preload Safety")]
+    [Tooltip("Activates this room slightly BEFORE the player fully enters it. Helps prevent falling before floor spawns.")]
+    public bool usePreloadRange = true;
+
+    [Tooltip("Extra world-space distance around the zone used for early activation.")]
+    public float preloadDistance = 2.5f;
+
+    [Tooltip("If player is near this zone during startup, this room can be force-activated immediately.")]
+    public bool allowStartupPreloadActivation = true;
 
     [Header("Exit Safety")]
     [Tooltip("Delay before deactivating after exit. Helps with teleports / trigger handoff.")]
@@ -62,9 +72,20 @@ public class RoomCullingZone : MonoBehaviour
 
     public static RoomCullingZone ActiveZone => activeZone;
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics()
+    {
+        allZones.Clear();
+        activeZone = null;
+        lastSwitchTime = -999f;
+    }
+
     /// <summary>
-    /// Activates the first zone that contains the given point.
-    /// Uses robust containment instead of plain bounds.Contains only.
+    /// Activates the best zone for the given point.
+    /// Priority:
+    /// 1. Exact inside zone
+    /// 2. Bounds fallback
+    /// 3. Preload range fallback
     /// </summary>
     public static bool ActivateZoneContainingPoint(Vector3 worldPoint)
     {
@@ -73,7 +94,7 @@ public class RoomCullingZone : MonoBehaviour
 
         Physics.SyncTransforms();
 
-        RoomCullingZone best = FindZoneContainingPoint(worldPoint);
+        RoomCullingZone best = FindBestZoneForPoint(worldPoint);
         if (best == null)
             return false;
 
@@ -87,9 +108,10 @@ public class RoomCullingZone : MonoBehaviour
         return ActivateZoneContainingPoint(player.position);
     }
 
-    private static RoomCullingZone FindZoneContainingPoint(Vector3 point)
+    private static RoomCullingZone FindBestZoneForPoint(Vector3 point)
     {
-        RoomCullingZone fallbackByBounds = null;
+        RoomCullingZone boundsFallback = null;
+        RoomCullingZone preloadFallback = null;
 
         for (int i = 0; i < allZones.Count; i++)
         {
@@ -98,16 +120,21 @@ public class RoomCullingZone : MonoBehaviour
             if (!z.isActiveAndEnabled) continue;
             if (z._col == null) continue;
 
-            // Exact-ish test first
+            // Best case: exact-ish inside test
             if (z.IsPointInsideZone(point))
                 return z;
 
-            // Bounds fallback
-            if (fallbackByBounds == null && z._col.bounds.Contains(point))
-                fallbackByBounds = z;
+            // Next fallback: raw bounds check
+            if (boundsFallback == null && z._col.bounds.Contains(point))
+                boundsFallback = z;
+
+            // Final fallback: preload range
+            if (preloadFallback == null && z.IsPointWithinPreloadRange(point))
+                preloadFallback = z;
         }
 
-        return fallbackByBounds;
+        if (boundsFallback != null) return boundsFallback;
+        return preloadFallback;
     }
 
     // =========================================================
@@ -122,19 +149,26 @@ public class RoomCullingZone : MonoBehaviour
         if (!allZones.Contains(this))
             allZones.Add(this);
 
-        // Start disabled. A robust startup resolver will turn on the correct room.
+        // Start disabled by default
         SetRoomObjectsActive(false);
+
+        // EARLY BOOTSTRAP:
+        // Try immediately in Awake so the room can exist before physics gets a chance
+        // to make the player fall in builds.
+        TryImmediateStartupActivation();
     }
 
     private void OnEnable()
     {
         if (!allZones.Contains(this))
             allZones.Add(this);
+
+        // Also retry here in case enable timing differs in build.
+        TryImmediateStartupActivation();
     }
 
     private void Start()
     {
-        // Try immediately in case player already exists and has already been teleported.
         ResolveNowFromPlayerPosition();
 
         if (recheckPlayerOnStart)
@@ -149,11 +183,31 @@ public class RoomCullingZone : MonoBehaviour
         if (!keepResolvingUntilActive)
             return;
 
-        // On slower devices, physics may step before normal trigger events settle.
-        // So if there is no active zone yet, aggressively resolve by player position.
+        var player = FindPlayerTransform();
+        if (player == null)
+            return;
+
+        // If there is no active zone yet, aggressively resolve.
         if (activeZone == null)
         {
             ResolveNowFromPlayerPosition();
+            return;
+        }
+
+        // Extra safety:
+        // If this zone is not active yet but the player is already inside/near it,
+        // activate now before physics keeps advancing.
+        if (activeZone != this)
+        {
+            Vector3 playerPoint = player.position;
+
+            if (IsPointInsideZone(playerPoint) || IsPointWithinPreloadRange(playerPoint))
+            {
+                if (verboseLogs)
+                    Debug.Log($"[RoomCullingZone] FixedUpdate preload activation for '{name}'.");
+
+                ActivateThisZoneNow_Force();
+            }
         }
     }
 
@@ -179,9 +233,6 @@ public class RoomCullingZone : MonoBehaviour
     {
         if (!other.CompareTag(playerTag)) return;
 
-        // Teleport-safe:
-        // if the player is already inside but this zone didn't get activated yet,
-        // request activation again.
         if (activeZone != this)
             RequestActivate();
     }
@@ -218,17 +269,47 @@ public class RoomCullingZone : MonoBehaviour
         }
     }
 
+    private void TryImmediateStartupActivation()
+    {
+        var player = FindPlayerTransform();
+        if (player == null || _col == null)
+            return;
+
+        Physics.SyncTransforms();
+
+        Vector3 p = player.position;
+
+        // Exact inside = always activate immediately
+        if (IsPointInsideZone(p))
+        {
+            if (verboseLogs)
+                Debug.Log($"[RoomCullingZone] Awake/OnEnable immediate activation: player inside '{name}'.");
+
+            ActivateThisZoneNow_Force();
+            return;
+        }
+
+        // Near enough = preload this room early
+        if (allowStartupPreloadActivation && IsPointWithinPreloadRange(p))
+        {
+            if (verboseLogs)
+                Debug.Log($"[RoomCullingZone] Awake/OnEnable preload activation: player near '{name}'.");
+
+            ActivateThisZoneNow_Force();
+        }
+    }
+
     private bool ResolveNowFromPlayerPosition()
     {
-        var player = GameObject.FindGameObjectWithTag(playerTag);
+        var player = FindPlayerTransform();
         if (player == null)
             return false;
 
         Physics.SyncTransforms();
 
-        Vector3 playerPoint = player.transform.position;
+        Vector3 playerPoint = player.position;
 
-        // Best case: if THIS zone contains the player, activate immediately.
+        // Best case: player is already inside THIS zone
         if (_col != null && IsPointInsideZone(playerPoint))
         {
             if (verboseLogs)
@@ -238,13 +319,29 @@ public class RoomCullingZone : MonoBehaviour
             return true;
         }
 
-        // Otherwise ask the whole zone set to resolve ownership.
+        // Preload case: player is very near THIS zone
+        if (_col != null && usePreloadRange && IsPointWithinPreloadRange(playerPoint))
+        {
+            if (verboseLogs)
+                Debug.Log($"[RoomCullingZone] ResolveNow: player is near '{name}', preload-forcing activation.");
+
+            ActivateThisZoneNow_Force();
+            return true;
+        }
+
+        // Otherwise ask all zones to determine best ownership
         bool activated = ActivateZoneContainingPoint(playerPoint);
 
         if (verboseLogs && activated)
-            Debug.Log($"[RoomCullingZone] ResolveNow: another zone was activated for player position.");
+            Debug.Log($"[RoomCullingZone] ResolveNow: a zone was activated for player position.");
 
         return activated;
+    }
+
+    private Transform FindPlayerTransform()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        return player != null ? player.transform : null;
     }
 
     // =========================================================
@@ -263,18 +360,20 @@ public class RoomCullingZone : MonoBehaviour
         if (player == null)
             yield break;
 
-        // If this zone is no longer the active one, nothing to do.
         if (activeZone != this)
             yield break;
 
         Vector3 playerPoint = player.position;
 
-        // If the player is actually still inside, keep room active.
+        // Still inside exact zone
         if (IsPointInsideZone(playerPoint))
             yield break;
 
-        // Try to hand off to the zone that currently contains the player.
-        RoomCullingZone newZone = FindZoneContainingPoint(playerPoint);
+        // Still near zone, keep it alive to avoid sudden floor loss
+        if (usePreloadRange && IsPointWithinPreloadRange(playerPoint))
+            yield break;
+
+        RoomCullingZone newZone = FindBestZoneForPoint(playerPoint);
         if (newZone != null && newZone != this)
         {
             if (verboseLogs)
@@ -284,7 +383,6 @@ public class RoomCullingZone : MonoBehaviour
             yield break;
         }
 
-        // Safety: do not drop to no room during handoff unless explicitly allowed.
         if (neverDropToNoRoomDuringHandoff)
         {
             if (verboseLogs)
@@ -369,7 +467,6 @@ public class RoomCullingZone : MonoBehaviour
             Debug.Log($"[RoomCullingZone] Activated room '{name}'.");
     }
 
-    // Force activation immediately, ignoring minSwitchInterval + delayed activation.
     private void ActivateThisZoneNow_Force()
     {
         if (_pendingActivate != null)
@@ -411,17 +508,24 @@ public class RoomCullingZone : MonoBehaviour
         if (_col == null)
             return false;
 
-        // Fast broad phase
         Bounds b = _col.bounds;
         b.Expand(insideTolerance * 2f);
         if (!b.Contains(point))
             return false;
 
-        // More reliable than plain bounds.Contains for many collider shapes:
-        // if ClosestPoint returns the same point, the point is inside or on the surface.
         Vector3 closest = _col.ClosestPoint(point);
         float sqr = (closest - point).sqrMagnitude;
         return sqr <= insideTolerance * insideTolerance;
+    }
+
+    private bool IsPointWithinPreloadRange(Vector3 point)
+    {
+        if (_col == null || !usePreloadRange)
+            return false;
+
+        Bounds b = _col.bounds;
+        b.Expand(preloadDistance * 2f);
+        return b.Contains(point);
     }
 
     private void SetRoomObjectsActive(bool active)
@@ -434,4 +538,22 @@ public class RoomCullingZone : MonoBehaviour
             if (obj) obj.SetActive(active);
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        if (!usePreloadRange) return;
+
+        Collider c = GetComponent<Collider>();
+        if (c == null) return;
+
+        Gizmos.color = new Color(0f, 1f, 1f, 0.2f);
+        Bounds b = c.bounds;
+        b.Expand(preloadDistance * 2f);
+        Gizmos.DrawCube(b.center, b.size);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(b.center, b.size);
+    }
+#endif
 }

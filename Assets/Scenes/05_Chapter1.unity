@@ -11752,6 +11752,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -12705,6 +12708,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -13740,6 +13746,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -16256,6 +16265,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -23301,6 +23313,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -26782,6 +26797,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -30469,6 +30487,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player
@@ -31590,7 +31611,7 @@ Transform:
   m_GameObject: {fileID: 1604406511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38260,6 +38281,9 @@ MonoBehaviour:
   startRecheckFixedSteps: 4
   keepResolvingUntilActive: 1
   insideTolerance: 0.08
+  usePreloadRange: 1
+  preloadDistance: 0.5
+  allowStartupPreloadActivation: 1
   exitDeactivationDelay: 0.08
   neverDropToNoRoomDuringHandoff: 1
   playerTag: Player

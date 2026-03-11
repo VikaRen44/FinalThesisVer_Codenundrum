@@ -31,6 +31,13 @@ public class CharacterSelection : MonoBehaviour
     public float introFadeOut = 0.35f;
     public float introFadeIn = 0.45f;
 
+    [Header("New Game Runtime Reset (NEW)")]
+    [Tooltip("If true, clears temporary in-memory world/hub return poses before starting a fresh New Game.")]
+    public bool clearRuntimePoseMemoryOnNewGame = true;
+
+    [Tooltip("If true, clears pending cached load selection so New Game won't inherit any previous load-selection cache.")]
+    public bool clearPendingLoadSelectionOnNewGame = true;
+
     private const string PREF_PLAYER_NAME = "playerName";
     private const string PREF_INTRO_PLAYED = "introPlayed";
 
@@ -90,7 +97,11 @@ public class CharacterSelection : MonoBehaviour
         Debug.Log("[CharacterSelection] Choose pressed.");
         SetButtonsInteractable(false);
 
+        // ✅ Keep selected character memory
         LoadCharacter.SaveSelectedCharacterIndex(selectedCharacter);
+
+        // ✅ NEW: Fresh New Game should not inherit old in-memory world/hub poses
+        PrepareFreshNewGameRuntimeState();
 
         string n = PlayerPrefs.GetString(PREF_PLAYER_NAME, "Charlie");
         if (string.IsNullOrWhiteSpace(n)) n = "Charlie";
@@ -128,6 +139,23 @@ public class CharacterSelection : MonoBehaviour
         _useWhiteTransitionForHubLoad = true;
 
         StartCoroutine(IntroFlow_NoWindow());
+    }
+
+    // ✅ NEW: clears only TEMP runtime state that can wrongly affect a fresh New Game spawn
+    private void PrepareFreshNewGameRuntimeState()
+    {
+        if (clearRuntimePoseMemoryOnNewGame)
+        {
+            LoadCharacter.ClearAllRuntimePoseMemory();
+
+            Debug.Log("[CharacterSelection] Cleared runtime pose memory for fresh New Game.");
+        }
+
+        if (clearPendingLoadSelectionOnNewGame)
+        {
+            SaveSystem.ClearPendingLoadSelection();
+            Debug.Log("[CharacterSelection] Cleared pending load selection cache for fresh New Game.");
+        }
     }
 
     // ✅ This is the fixed flow: cover -> start intro while covered -> reveal

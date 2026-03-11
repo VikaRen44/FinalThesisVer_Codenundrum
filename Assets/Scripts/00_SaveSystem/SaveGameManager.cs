@@ -113,6 +113,9 @@ public class SaveGameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         EnsureActiveProfileIfEmpty();
+
+        // ✅ NEW: make sure StoryFlags always exists, even from main menu load
+        EnsureStoryFlagsExists();
     }
 
     private void OnDestroy()
@@ -278,6 +281,7 @@ public class SaveGameManager : MonoBehaviour
         EnsureActiveProfileIfEmpty();
         EnsurePlayerTransform();
         EnsureHostTransform();
+        EnsureStoryFlagsExists();
 
         var data = new SaveData
         {
@@ -312,6 +316,18 @@ public class SaveGameManager : MonoBehaviour
             data.assessmentScorePayloadJson = AssessmentScoreManager.Instance.ExportSaveStateJson();
         else
             data.assessmentScorePayloadJson = "";
+
+        // ✅ NEW: save story route
+        if (StoryFlags.instance != null)
+        {
+            data.currentRoute = (int)StoryFlags.instance.currentRoute;
+            data.hasCurrentRoute = true;
+        }
+        else
+        {
+            data.currentRoute = (int)Route.Neutral;
+            data.hasCurrentRoute = false;
+        }
 
         if (playerTransform != null)
         {
@@ -360,6 +376,18 @@ public class SaveGameManager : MonoBehaviour
 
         if (!string.IsNullOrWhiteSpace(data.playerName))
             SetPlayerName(data.playerName);
+
+        // ✅ NEW: ensure StoryFlags exists before anything in loaded scene tries to use it
+        EnsureStoryFlagsExists();
+
+        // ✅ NEW: restore saved route
+        if (StoryFlags.instance != null)
+        {
+            if (data.hasCurrentRoute)
+                StoryFlags.instance.currentRoute = (Route)data.currentRoute;
+            else
+                StoryFlags.instance.currentRoute = Route.Neutral;
+        }
 
         int idx = data.selectedCharacterIndex;
         if (!data.hasSelectedCharacterIndex &&
@@ -446,7 +474,7 @@ public class SaveGameManager : MonoBehaviour
         SaveSystem.Save(slot, snapshot, optionalThumb);
 
         if (verboseLogs)
-            Debug.Log($"[SaveGameManager] Saved slot {slot}: activeProfile='{SaveSystem.GetActiveProfile()}', name='{snapshot.playerName}', scene='{snapshot.sceneName}', charIndex={snapshot.selectedCharacterIndex}, trusted={snapshot.hasSelectedCharacterIndex}");
+            Debug.Log($"[SaveGameManager] Saved slot {slot}: activeProfile='{SaveSystem.GetActiveProfile()}', name='{snapshot.playerName}', scene='{snapshot.sceneName}', charIndex={snapshot.selectedCharacterIndex}, trusted={snapshot.hasSelectedCharacterIndex}, route={(snapshot.hasCurrentRoute ? ((Route)snapshot.currentRoute).ToString() : "None")}");
     }
 
     public void LoadFromSlot(int slot)
@@ -561,6 +589,12 @@ public class SaveGameManager : MonoBehaviour
             var go = GameObject.FindGameObjectWithTag(hostTag);
             if (go != null) hostTransform = go.transform;
         }
+    }
+
+    // ✅ NEW: ensure StoryFlags exists for direct load paths
+    private void EnsureStoryFlagsExists()
+    {
+        StoryFlags.EnsureExists();
     }
 
     // =========================================================

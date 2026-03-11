@@ -22,24 +22,51 @@ public class BranchChoice : MonoBehaviour
     {
         if (StoryFlags.instance == null)
         {
-            Debug.LogWarning("StoryFlags missing - test mode.");
+            Debug.LogWarning("[BranchChoice] StoryFlags missing - creating fallback instance.");
+            StoryFlags.EnsureExists();
+        }
+
+        if (dialogueManager == null)
+        {
+            Debug.LogWarning("[BranchChoice] DialogueManager is missing.");
         }
     }
-    
+
     public void ChooseA()
     {
-        choiceAButton.SetActive(false);
-        choiceBButton.SetActive(false);
-
-        // If this choice loads a scene
         if (loadSceneAfterChoice)
         {
+            if (string.IsNullOrWhiteSpace(sceneForChoiceA))
+            {
+                Debug.LogWarning("[BranchChoice] sceneForChoiceA is empty.");
+                return;
+            }
+
             SceneManager.LoadScene(sceneForChoiceA);
             return;
         }
 
-        // Otherwise play dialogue branch
+        if (StoryFlags.instance == null)
+        {
+            StoryFlags.EnsureExists();
+        }
+
+        if (StoryFlags.instance == null)
+        {
+            Debug.LogError("[BranchChoice] Cannot choose A because StoryFlags.instance is null.");
+            return;
+        }
+
+        if (dialogueManager == null)
+        {
+            Debug.LogError("[BranchChoice] Cannot choose A because dialogueManager is null.");
+            return;
+        }
+
         StoryFlags.instance.currentRoute = Route.Good;
+
+        if (choiceAButton != null) choiceAButton.SetActive(false);
+        if (choiceBButton != null) choiceBButton.SetActive(false);
 
         dialogueManager.enabled = true;
         dialogueManager.StartDialogue(choiceADialogue);
@@ -47,18 +74,39 @@ public class BranchChoice : MonoBehaviour
 
     public void ChooseB()
     {
-        choiceAButton.SetActive(false);
-        choiceBButton.SetActive(false);
-
-        // If this choice loads a scene
         if (loadSceneAfterChoice)
         {
+            if (string.IsNullOrWhiteSpace(sceneForChoiceB))
+            {
+                Debug.LogWarning("[BranchChoice] sceneForChoiceB is empty.");
+                return;
+            }
+
             SceneManager.LoadScene(sceneForChoiceB);
             return;
         }
 
-        // Otherwise play dialogue branch
+        if (StoryFlags.instance == null)
+        {
+            StoryFlags.EnsureExists();
+        }
+
+        if (StoryFlags.instance == null)
+        {
+            Debug.LogError("[BranchChoice] Cannot choose B because StoryFlags.instance is null.");
+            return;
+        }
+
+        if (dialogueManager == null)
+        {
+            Debug.LogError("[BranchChoice] Cannot choose B because dialogueManager is null.");
+            return;
+        }
+
         StoryFlags.instance.currentRoute = Route.Bad;
+
+        if (choiceAButton != null) choiceAButton.SetActive(false);
+        if (choiceBButton != null) choiceBButton.SetActive(false);
 
         dialogueManager.enabled = true;
         dialogueManager.StartDialogue(choiceBDialogue);

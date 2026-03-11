@@ -1959,11 +1959,40 @@ MonoBehaviour:
   numberButtonPrefab: {fileID: 8709056409677819625, guid: ebc6187757a283345970caf72bf30bc7, type: 3}
   statusText: {fileID: 0}
   continuePrompt: {fileID: 0}
+  fadeOverlay: {fileID: 0}
+  fadeDuration: 1.8
   instructionPanel: {fileID: 0}
+  sortKeyText: {fileID: 0}
+  nodeCount: 7
+  minRandomValue: 1
+  maxRandomValue: 999
+  randomizeContentEachPlay: 1
   swapAnimDuration: 0.28
   completionPanel: {fileID: 0}
   gameTimer: {fileID: 0}
+  timerText: {fileID: 0}
   proceedPanel: {fileID: 954166813}
+  timeUpPanel: {fileID: 0}
+  timeUpFadeDuration: 0.4
+  focusGlowPanel: {fileID: 0}
+  glowPadding: 120
+  winFlash: {fileID: 0}
+  winFlashDuration: 0.6
+  defaultNodeColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedNodeColor: {r: 1, g: 1, b: 0.5, a: 1}
+  completedNodeColor: {r: 0.6, g: 1, b: 0.6, a: 1}
+  completionGlowColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  completionGlowDuration: 0.5
+  completionGlowScale: 1.2
+  wrongNodeColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  correctNodeColor: {r: 0.3, g: 1, b: 0.3, a: 1}
+  correctFlashDuration: 0.35
+  parentNodeColor: {r: 1, g: 0.75, b: 0.3, a: 1}
+  childNodeColor: {r: 0.6, g: 1, b: 0.6, a: 1}
+  focusScale: 1.15
+  focusSpeed: 8
+  shakeDuration: 0.5
+  shakeStrength: 10
   useEaseInOut: 1
   blockInputDuringSwap: 1
 --- !u!114 &1930576185

@@ -26,8 +26,12 @@ public class SaveData
     // ✅ rewards/badges save payload (JSON)
     public string rewardPayloadJson = "";
 
-    // ✅ NEW: assessment scores payload (JSON)  <<<<<< THIS IS THE FIX
+    // ✅ NEW: assessment scores payload (JSON)
     public string assessmentScorePayloadJson = "";
+
+    // ✅ NEW: route / story flag save support
+    public int currentRoute = (int)Route.Neutral;
+    public bool hasCurrentRoute = false;
 
     // ------------- PLAYER -------------
     [Serializable]
